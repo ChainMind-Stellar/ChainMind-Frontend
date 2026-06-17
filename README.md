@@ -1,247 +1,48 @@
-## Product Overview
-Name: Kolo: WhatsApp-Native Savings & Payments Platform
-Platform: WhatsApp + Node.js Backend + Stellar Blockchain + Soroban Smart Contracts
+# Kolo Frontend
 
-Objective:
-Enable individuals, families, and community savings groups to create, manage, and participate in digital savings circles directly through WhatsApp, with transparent contributions and automated payouts powered by Stellar.
-Target Users:
-Ajo/Esusu groups
-Community cooperatives
-Family savings groups
-Students
-Informal financial associations
-Small business contribution clubs
-2. Features
-2.1 User Features
-Register using WhatsApp phone number
-Automatically create Stellar wallet
-Check wallet balance
-Send and receive USDC
-View transaction history
-Receive payment notifications
-2.2 Savings Group Features
-Create savings groups
-Invite members through WhatsApp
-Join groups via invitation
-Define contribution amount
-Define contribution frequency
-Track member contributions
-View group savings progress
-Automated contribution reminders
-Automated payout distribution
-2.3 Admin Features
-Monitor platform activity
-View active groups
-Manage users
-Review transaction logs
-Handle dispute reports
-Monitor smart contract performance
-3. Technical Architecture
-Components
-WhatsApp Interface
-Provides user interaction through:
-Commands
-Interactive buttons
-Notifications
-Group invitations
-WhatsApp Business API
-Handles:
-Message delivery
-User communication
-Event webhooks
-Node.js Backend
-Responsible for:
-User management
-Wallet management
-Group management
-Transaction processing
-Smart contract interaction
-Soroban Smart Contracts
-Handles:
-Savings group creation
-Contribution tracking
-Payout execution
-Group state management
-Stellar Blockchain
-Provides:
-Settlement layer
-USDC transfers
-Transaction validation
-Database
-Stores:
-User profiles
-Group metadata
-Transaction records
-Contribution history
-System Flow
+This is the official Next.js frontend repository for the Kolo application. The application is built using the Next.js App Router, strict TypeScript, and TailwindCSS, establishing a robust, production-ready foundation for future Stellar wallet, payment, and Soroban integrations.
 
-Savings Group Contribution Flow
+## Tech Stack
+- **Framework**: Next.js (App Router)
+- **Language**: TypeScript (Strict Mode)
+- **Styling**: TailwindCSS
+- **Code Quality**: ESLint, Prettier
 
+## Local Setup
 
-Automated Payout Flow
+To get started with development locally:
 
+1. **Install Dependencies**
+   Make sure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
 
-Group Creation Flow
+2. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. The application will auto-update as you edit the files.
 
+## Project Structure & Architecture
 
-4. Tech Stack
-Frontend
-WhatsApp Business Platform
-WhatsApp Cloud API
-Backend
-Node.js
-Express.js
-TypeScript
-Database
-PostgreSQL
-Blockchain
-Stellar Network
-Soroban Smart Contracts
-Smart Contract Language
-Rust
-soroban-sdk
-Wallet Integration
-Stellar SDK
-Notifications
-WhatsApp Cloud API Webhooks
+The application implements a clean, atomic folder architecture separating concerns into specific domain areas:
 
-5. MVP Scope
-User Registration
-WhatsApp onboarding
-Wallet creation
-Wallet Features
-Balance inquiry
-Transaction history
-Savings Groups
-Create group
-Join group
-Invite members
-Contribution tracking
-Payments
-USDC transfers
-Automated payouts
-Notifications
-Contribution reminders
-Payout confirmations
-6. Future Enhancements
-Financial Features
-Rotational savings pools (Ajo/Esusu)
-Goal-based savings
-Emergency funds
-Community lending
-Payments
-Merchant payments
-Bill payments
-Airtime purchases
-Utility payments
-Growth Features
-Referral rewards
-Group leaderboards
-Savings achievements
-Asset Support
-Multiple stablecoins
-Local currency on/off ramps
-Cross-border remittances
-7. Security & Compliance
-Security
-Encrypted wallet storage
-Secure webhook validation
-Transaction signing verification
-Smart contract validation
-Compliance
-Phone number verification
-KYC integration (future phase)
-AML monitoring (future phase)
-Transaction audit logs
-8. Performance Considerations
-Cache frequently accessed group data
-Optimize Soroban contract storage
-Queue transaction processing
-Implement webhook retry mechanisms
-Monitor Stellar network fees
-Target Metrics
-Response time < 3 seconds
-Payment settlement < 5 seconds
-Support 10,000+ users
-Support 1,000+ active savings groups
-9. Testing Plan
-Backend Testing
-Unit tests for APIs
-Wallet service tests
-Group management tests
-Smart Contract Testing
-Soroban contract unit tests
-Contribution validation tests
-Payout execution tests
-Integration Testing
-Full workflow:
-User Registration
-Wallet Creation
-Group Creation
-Member Contribution
-Automated Payout
-Transaction Verification
-Load Testing
-Concurrent user activity
-High-volume contribution periods
-Group payout events
-10. Deployment Plan
-Backend
-Deploy on:
-AWS
-DigitalOcean
-Railway
-Database
-PostgreSQL Managed Service
-Blockchain
-Stellar Testnet (Development)
-Stellar Mainnet (Production)
-Smart Contracts
-Deploy Soroban contracts:
-Testnet
-Mainnet
-WhatsApp Integration
-WhatsApp Cloud API
-Webhook Infrastructure
-Monitoring
-Application Logs
-Stellar Transaction Monitoring
-Smart Contract Monitoring
-Error Tracking
-11. Success Metrics
-User Metrics
-Registered users
-Active users
-Retention rate
-Group Metrics
-Groups created
-Active groups
-Average members per group
-Financial Metrics
-Total savings volume
-Total contribution volume
-Total payouts processed
-Platform Metrics
-Transaction success rate
-Smart contract execution success rate
-Average response time
-12. Core User Commands
-Account
-BALANCE
-HISTORY
-PROFILE
-Payments
-SEND 10 @john
-REQUEST 20 @mary
-Savings Groups
-CREATE GROUP
-JOIN GROUP
-INVITE MEMBER
-GROUP STATUS
-CONTRIBUTE
-WITHDRAW
-Help
-HELP
-SUPPORT
+- `src/app/(auth)/`: Unauthenticated login and registration routes.
+- `src/app/(dashboard)/`: Protected user dashboard, group management, payments, and profile routing.
+- `src/app/api/`: Serverless API handlers, including Stellar wallet integrations and WhatsApp webhooks.
+- `src/components/`: Reusable UI elements, heavily utilizing `index.ts` barrel files. Segmented into `common/`, `dashboard/`, `groups/`, `payments/`, and `layout/`.
+- `src/hooks/`: Custom React hooks for global domain logic (`useAuth`, `useWallet`, etc.).
+- `src/services/`: Isolated API fetch logic, segregating internal endpoints, external Stellar SDK usage, and webhook utilities.
+- `src/context/`: React Context providers for global state management.
+- `src/types/`: Centralized TypeScript interfaces for strict typing across the app.
+- `src/utils/`: Common utilities including formatting helpers and cross-platform validators.
+- `src/middleware.ts`: Next.js middleware handling dynamic route protection for the `/(dashboard)` routes.
 
+## Development Workflow
 
+- **Branching**: Always branch off `main` to create features (`feature/my-feature`).
+- **Committing**: Ensure the code builds properly and all type checks pass before committing. 
+- **Validation**:
+  - Run `npm run build` to verify Next.js static rendering and TypeScript compilation.
+  - Run `npm run lint` to catch stylistic and syntax errors.
