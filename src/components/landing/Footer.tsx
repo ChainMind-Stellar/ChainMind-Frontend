@@ -1,8 +1,13 @@
 import Link from "next/link";
 
+const imgKoloLogo = "https://www.figma.com/api/mcp/asset/56e99059-7d00-4280-bf52-6696050d08c1";
+const imgIconGlobe = "https://www.figma.com/api/mcp/asset/76cc3dc8-8eeb-497c-b861-f99c4469cecc";
+const imgIconCommunity = "https://www.figma.com/api/mcp/asset/d24d2e5f-2a02-4879-9ced-4d92c6e9928c";
+const imgIconInstitution = "https://www.figma.com/api/mcp/asset/640290cb-77cc-47df-b7a5-afabab2b79a2";
+
 const columns = [
   {
-    heading: "Product",
+    heading: "PRODUCT",
     links: [
       { label: "Community Pools", href: "#features" },
       { label: "Yield Vaults", href: "#stellar" },
@@ -10,7 +15,7 @@ const columns = [
     ],
   },
   {
-    heading: "Resources",
+    heading: "RESOURCES",
     links: [
       { label: "Developer API", href: "#" },
       { label: "Stellar Network", href: "#" },
@@ -18,7 +23,7 @@ const columns = [
     ],
   },
   {
-    heading: "Legal",
+    heading: "LEGAL",
     links: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
@@ -29,75 +34,104 @@ const columns = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-16 pb-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between gap-12 mb-14">
-          {/* Brand */}
-          <div className="max-w-xs">
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-              <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
-                <svg viewBox="0 0 20 20" className="w-4 h-4 fill-white">
-                  <path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 4.5v3.75h3.75a.75.75 0 010 1.5h-3.75V15.5a.75.75 0 01-1.5 0v-3.75H5.5a.75.75 0 010-1.5h3.75V6.5a.75.75 0 011.5 0z" />
-                </svg>
-              </div>
-              <span className="font-display font-bold text-xl text-slate-900">Kolo</span>
+    <footer
+      className="flex flex-col gap-16 items-start px-10 pb-6 border-t"
+      style={{
+        background: "#f6f3f5",
+        borderColor: "rgba(198,198,205,0.3)",
+        paddingTop: "97px",
+      }}
+    >
+      {/* Main grid */}
+      <div className="max-w-[1200px] w-full">
+        <div className="grid grid-cols-12 gap-x-16 px-4">
+          {/* Brand — cols 1–5 */}
+          <div className="col-[1/span_5] flex flex-col gap-6 pb-6 self-start">
+            <Link href="/" className="flex items-center gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={imgKoloLogo} alt="Kolo" className="w-8 h-8" />
+              <span className="font-display font-bold text-base text-[#1b1b1d]">Kolo</span>
             </Link>
-            <p className="text-slate-500 text-sm leading-relaxed">
-              Social savings infrastructure for the next billion users. Built on
-              the secure and efficient Stellar network.
+            <p className="text-[#45464d] text-base leading-6">
+              Social savings infrastructure for the next billion
+              <br />
+              users. Built on the secure and efficient Stellar
+              <br />
+              network.
             </p>
           </div>
 
-          {/* Link columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
-            {columns.map(({ heading, links }) => (
-              <div key={heading}>
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-5">
-                  {heading}
-                </h4>
-                <ul className="space-y-3.5">
-                  {links.map(({ label, href }) => (
-                    <li key={label}>
-                      <Link
-                        href={href}
-                        className="text-sm text-slate-600 hover:text-slate-900 transition-colors"
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Product — cols 6–7 */}
+          <div className="col-[6/span_2] flex flex-col gap-6 self-start">
+            <h4 className="text-[#1b1b1d] text-base uppercase tracking-[0.8px]">
+              {columns[0].heading}
+            </h4>
+            <ul className="flex flex-col gap-4">
+              {columns[0].links.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-[#45464d] text-base leading-6 hover:text-[#1b1b1d] transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources — cols 8–9 */}
+          <div className="col-[8/span_2] flex flex-col gap-6 self-start">
+            <h4 className="text-[#1b1b1d] text-base uppercase tracking-[0.8px]">
+              {columns[1].heading}
+            </h4>
+            <ul className="flex flex-col gap-4">
+              {columns[1].links.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-[#45464d] text-base leading-6 hover:text-[#1b1b1d] transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal — cols 10–12 */}
+          <div className="col-[10/span_3] flex flex-col gap-6 self-start">
+            <h4 className="text-[#1b1b1d] text-base uppercase tracking-[0.8px]">
+              {columns[2].heading}
+            </h4>
+            <ul className="flex flex-col gap-4">
+              {columns[2].links.map(({ label, href }) => (
+                <li key={label}>
+                  <Link href={href} className="text-[#45464d] text-base leading-6 hover:text-[#1b1b1d] transition-colors">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-slate-400 text-sm">
+      {/* Bottom bar */}
+      <div
+        className="max-w-[1200px] w-full border-t pt-6 px-4"
+        style={{ borderColor: "rgba(198,198,205,0.3)" }}
+      >
+        <div className="flex items-center justify-between">
+          <p className="text-[#45464d] text-base leading-6">
             © 2024 Kolo Finance. Built with trust on Stellar.
           </p>
-          <div className="flex items-center gap-4">
-            {/* Globe */}
-            <button aria-label="Language" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-              </svg>
+          <div className="flex items-center gap-8">
+            <button aria-label="Language">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={imgIconGlobe} alt="" className="w-5 h-5" />
             </button>
-            {/* Community */}
-            <button aria-label="Community" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
-                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-              </svg>
+            <button aria-label="Community">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={imgIconCommunity} alt="" className="w-6 h-3" />
             </button>
-            {/* Institution */}
-            <button aria-label="Stellar" className="text-slate-400 hover:text-slate-600 transition-colors">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round">
-                <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3" />
-              </svg>
+            <button aria-label="Institution">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={imgIconInstitution} alt="" className="w-5 h-5" />
             </button>
           </div>
         </div>
