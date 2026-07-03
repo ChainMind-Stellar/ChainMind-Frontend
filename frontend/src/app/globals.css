@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #4f378a;
+  --primary-container: #6750a4;
+  --secondary: #63597c;
+  --background: #f8f6f3;
+  --card: #f4f1ec;
+  --terminal: #ede6f5;
+  --chat: #f3f0fa;
+  --badge: #e8e1f4;
+  --surface: #fdf7ff;
+  --text: #1d1b20;
+  --text-light: #494551;
+  --outline: #cbc4d2;
+  --radius: 20px;
+  --shadow: 0px 4px 20px rgba(78, 67, 99, 0.08);
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  background: #fdf7ff;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-heading);
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

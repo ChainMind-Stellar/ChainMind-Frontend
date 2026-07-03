@@ -1,1 +1,0 @@
-export const GroupList = () => <div>Group List</div>;

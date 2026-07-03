@@ -1,1 +1,0 @@
-export const GroupCreation = () => <div>Group Creation</div>;
