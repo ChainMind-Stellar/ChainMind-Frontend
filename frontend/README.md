@@ -111,8 +111,6 @@ ChainMind uses a purple-based design system. See [DESIGN_SUBMISSION.md](./DESIGN
 - **Icons:** Lucide React
 - **All tokens prefixed with `cm-`**
 
-
-
 ### Brand & Style
 
 The design system for this product is built on a narrative of "Autonomous Intelligence and Immutable Trust." It positions the platform as a high-precision instrument for the Stellar ecosystem. The aesthetic is a hybrid of **Minimalism** and **Glassmorphism**, emphasizing clarity, technical sophistication, and an "AI-first" developer experience.
