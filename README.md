@@ -175,3 +175,7 @@ The shape language is "Soft-Geometric." It avoids the extreme playfulness of ful
 - **Input Fields:** Use a subtle background fill of `#F4F1EC` and a 1px border that shifts to `cm-accent` on focus.
 - **Terminal:** The code terminal uses `cm-bg-terminal`, `cm-code` typography, and includes a "pulsing" indicator in `cm-accent` to show the AI is processing.
 - **User Chat Bubbles:** Styled with `cm-bg-chat` and right-aligned to distinguish user input from AI-generated report insights.
+
+
+figma 
+https://www.figma.com/design/FeRXem1Wb2QtYapR7iK02e/ChainMind?node-id=0-1&p=f&t=s6dJ066FlwbjaIBN-0
